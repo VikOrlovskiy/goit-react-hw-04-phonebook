@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types';
-import s from './ContactList.module.css';
-import ContactListItem from '../ContactListItem';
+import PropTypes from "prop-types";
+import s from "./ContactList.module.css";
+import ContactListItem from "../ContactListItem";
 
 export default function ContactList({ contacts, deleteContact }) {
-  console.log(contacts.length);
   return (
     <ul className={s.list}>
       {contacts.length > 0 ? (
