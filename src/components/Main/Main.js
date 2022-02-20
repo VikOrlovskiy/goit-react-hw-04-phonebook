@@ -25,10 +25,17 @@ export default function Main() {
       return;
     }
     setContacts((prev) => [...prev, newContact]);
-    localStorage.setItem("contacts", JSON.stringify(contacts));
   };
   const onChengeValue = (e) => {
     setFilter(e.currentTarget.value);
+  };
+  const filtredLIst = () => {
+    if (filter === "") {
+      return contacts;
+    }
+    return contacts.filter((contact) =>
+      contact.name.toLocaleLowerCase().includes(filter)
+    );
   };
   return (
     <div className={s.wraper}>
@@ -36,7 +43,7 @@ export default function Main() {
       <ContactForm onSubmit={addContact} />
       <h2 className={s.subtitle}>Contacts</h2>
       <Filter value={filter} onChengeValue={onChengeValue} />
-      <ContactList contacts={contacts} deleteContact={deleteContact} />
+      <ContactList contacts={filtredLIst()} deleteContact={deleteContact} />
     </div>
   );
 }
