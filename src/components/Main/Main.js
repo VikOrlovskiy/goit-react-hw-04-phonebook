@@ -34,7 +34,7 @@ export default function Main() {
       return contacts;
     }
     return contacts.filter((contact) =>
-      contact.name.toLocaleLowerCase().includes(filter)
+      contact.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
     );
   };
   return (
